@@ -5,9 +5,24 @@ const userSchema = new Schema({
   username: {
     type: String,
     unique: true,
-    // unique: true -> Ideally, should be unique, but its up to you
+    
   },
-  password: String,
+  password: {
+    type: String,
+    require: true
+  },
+  firstName: {
+    type: String,
+    require: true,
+  },
+  lastName: {
+    type: String,
+  },
+  noteId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'note'
+  }
+
 });
 
 const User = model("User", userSchema);

@@ -23,7 +23,7 @@ router.get('/notes', (req, res) => {
 
 router.post('/create', (req, res) => {  
     const {name, description, completed} = req.body;
-    console.log(req.body)
+   
     NotesModel.create({name: name, description: description, completed: completed})
           .then((response) => {
                res.status(200).json(response)
@@ -37,7 +37,7 @@ router.post('/create', (req, res) => {
 })
 
 // will handle all GET requests to http:localhost:5005/api/todos/:todoId
-//PS: Don't type :todoId , it's something dynamic, 
+//PS: Don't type :noteId , it's something dynamic, 
 router.get('/notes/:noteId', (req, res) => {
   NotesModel.findById(req.params.noteId)
      .then((response) => {
